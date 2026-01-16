@@ -259,29 +259,6 @@
             });
         }
 
-            // 3. Recorremos cada carro y creamos su tarjeta HTML
-            carros.forEach(carro => {
-                // NOTA: Asegúrate que 'nombre', 'precio', etc. sean los nombres REALES de tus columnas en Supabase
-                const htmlCarro = `
-                    <div class="car-card">
-                        <div class="car-image">🚙</div>
-                        <div class="car-info">
-                            <h3>${carro.nombre}</h3> 
-                            <p class="price">$${carro.precio}</p>
-                            <ul>
-                                <li>✓ ${carro.motor || 'Motor Estándar'}</li>
-                                <li>✓ ${carro.pasajeros || '5'} Pasajeros</li>
-                            </ul>
-                            <a href="contacto.html" class="btn">Más Información</a>
-                        </div>
-                    </div>
-                `;
-                
-                // Agregamos la tarjeta al contenedor
-                contenedor.innerHTML += htmlCarro;
-            });
-        }
-
         // Cargar los carros cuando la página termine de cargar
         document.addEventListener('DOMContentLoaded', obtenerCarros);
     </script>
