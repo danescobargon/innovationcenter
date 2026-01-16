@@ -165,11 +165,10 @@
     </style>
 </head>
 <body>
+
     <header>
         <nav>
-            <a href="index.html" class="logo">
-🚗 AutoPremium
-</a>
+            <a href="index.html" class="logo">🚗 AutoPremium</a>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="inventario.html">Inventario</a></li>
@@ -181,135 +180,80 @@
 
     <section>
         <h1>Nuestro Inventario</h1>
-        <div class="cars-grid">
-            <div class="car-card">
-                <div class="car-image">🚙</div>
-                <div class="car-info">
-                    <h3>SUV Premium 2024</h3>
-                    <p class="price">$85,000,000</p>
-                    <ul>
-                        <li>✓ Motor 3.5L V6</li>
-                        <li>✓ 7 Pasajeros</li>
-                        <li>✓ 4x4 Automático</li>
-                        <li>✓ Cámara 360°</li>
-                    </ul>
-                    <a href="contacto.html" class="btn">Más Información</a>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <div class="car-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🏎️</div>
-                <div class="car-info">
-                    <h3>Sedán Deportivo 2024</h3>
-                    <p class="price">$95,000,000</p>
-                    <ul>
-                        <li>✓ Motor 2.0L Turbo</li>
-                        <li>✓ 5 Pasajeros</li>
-                        <li>✓ Transmisión Automática</li>
-                        <li>✓ Techo Panorámico</li>
-                    </ul>
-                    <a href="contacto.html" class="btn">Más Información</a>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <div class="car-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🚐</div>
-                <div class="car-info">
-                    <h3>Camioneta Familiar 2024</h3>
-                    <p class="price">$72,000,000</p>
-                    <ul>
-                        <li>✓ Motor 2.5L Híbrido</li>
-                        <li>✓ 8 Pasajeros</li>
-                        <li>✓ Bajo Consumo</li>
-                        <li>✓ Sistema Multimedia</li>
-                    </ul>
-                    <a href="contacto.html" class="btn">Más Información</a>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <div class="car-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🚗</div>
-                <div class="car-info">
-                    <h3>Compacto Urbano 2024</h3>
-                    <p class="price">$45,000,000</p>
-                    <ul>
-                        <li>✓ Motor 1.6L</li>
-                        <li>✓ 5 Pasajeros</li>
-                        <li>✓ Aire Acondicionado</li>
-                        <li>✓ Bajo Consumo</li>
-                    </ul>
-                    <a href="contacto.html" class="btn">Más Información</a>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <div class="car-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">🏁</div>
-                <div class="car-info">
-                    <h3>Deportivo GT 2024</h3>
-                    <p class="price">$150,000,000</p>
-                    <ul>
-                        <li>✓ Motor 4.0L V8</li>
-                        <li>✓ 2 Pasajeros</li>
-                        <li>✓ 0-100 en 3.5s</li>
-                        <li>✓ Edición Limitada</li>
-                    </ul>
-                    <a href="contacto.html" class="btn">Más Información</a>
-                </div>
-            </div>
-
-            <div class="car-card">
-                <div class="car-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">🚙</div>
-                <div class="car-info">
-                    <h3>Crossover 2024</h3>
-                    <p class="price">$68,000,000</p>
-                    <ul>
-                        <li>✓ Motor 2.0L Turbo</li>
-                        <li>✓ 5 Pasajeros</li>
-                        <li>✓ Tracción AWD</li>
-                        <li>✓ Pantalla Touch</li>
-                    </ul>
-                    <a href="contacto.html" class="btn">Más Información</a>
-                </div>
-            </div>
+        
+        <div class="cars-grid" id="contenedor-autos">
+            <p style="text-align: center; width: 100%;">Cargando inventario...</p>
         </div>
+
     </section>
 
     <footer>
         <p>&copy; 2024 AutoPremium. Todos los derechos reservados.</p>
     </footer>
-    <!-- Supabase Backend -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  // Configuración de Supabase
-  const SUPABASE_URL = 'https://lnlxglplgxfffnenabdm.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_qt_g8NoGjuMY1SK-NyRt7w_D2OP1ttI';
-  
-  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  // Función para obtener todos los carros
-  async function obtenerCarros() {
-    const { data, error } = await supabaseClient
-      .from('vehiculos')
-      .select('*');
-    
-    if (error) {
-      console.error('Error al obtener carros:', error);
-      return;
-    }
-    
-    console.log('Carros obtenidos:', data);
-    mostrarCarros(data);
-  }
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Configuración de Supabase
+        const SUPABASE_URL = 'https://lnlxglplgxfffnenabdm.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_qt_g8NoGjuMY1SK-NyRt7w_D2OP1ttI';
+        
+        // Correcto: Usamos supabaseClient para evitar conflictos
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  // Función para mostrar los carros en la página
-  function mostrarCarros(carros) {
-    // Aquí mostraremos los carros más adelante
-    console.log('Total de carros:', carros.length);
-  }
+        // Función para obtener todos los carros
+        async function obtenerCarros() {
+            const { data, error } = await supabaseClient
+                .from('vehiculos')
+                .select('*');
+            
+            if (error) {
+                console.error('Error al obtener carros:', error);
+                document.getElementById('contenedor-autos').innerHTML = '<p>Error al cargar los datos.</p>';
+                return;
+            }
+            
+            console.log('Carros obtenidos:', data);
+            mostrarCarros(data);
+        }
 
-  // Cargar los carros cuando la página termine de cargar
-  document.addEventListener('DOMContentLoaded', obtenerCarros);
-</script>
+        // Función para mostrar los carros en la página
+        function mostrarCarros(carros) {
+            const contenedor = document.getElementById('contenedor-autos');
+            
+            // 1. Limpiamos el mensaje de "Cargando..."
+            contenedor.innerHTML = '';
 
+            // 2. Si no hay carros, mostramos un aviso
+            if (!carros || carros.length === 0) {
+                contenedor.innerHTML = '<p>No hay vehículos disponibles en este momento.</p>';
+                return;
+            }
+
+            // 3. Recorremos cada carro y creamos su tarjeta HTML
+            carros.forEach(carro => {
+                // NOTA: Asegúrate que 'nombre', 'precio', etc. sean los nombres REALES de tus columnas en Supabase
+                const htmlCarro = `
+                    <div class="car-card">
+                        <div class="car-image">🚙</div>
+                        <div class="car-info">
+                            <h3>${carro.nombre}</h3> 
+                            <p class="price">$${carro.precio}</p>
+                            <ul>
+                                <li>✓ ${carro.motor || 'Motor Estándar'}</li>
+                                <li>✓ ${carro.pasajeros || '5'} Pasajeros</li>
+                            </ul>
+                            <a href="contacto.html" class="btn">Más Información</a>
+                        </div>
+                    </div>
+                `;
+                
+                // Agregamos la tarjeta al contenedor
+                contenedor.innerHTML += htmlCarro;
+            });
+        }
+
+        // Cargar los carros cuando la página termine de cargar
+        document.addEventListener('DOMContentLoaded', obtenerCarros);
+    </script>
 </body>
 </html>
