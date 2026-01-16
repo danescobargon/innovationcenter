@@ -220,14 +220,44 @@
         function mostrarCarros(carros) {
             const contenedor = document.getElementById('contenedor-autos');
             
-            // 1. Limpiamos el mensaje de "Cargando..."
             contenedor.innerHTML = '';
 
-            // 2. Si no hay carros, mostramos un aviso
             if (!carros || carros.length === 0) {
                 contenedor.innerHTML = '<p>No hay vehículos disponibles en este momento.</p>';
                 return;
             }
+
+            carros.forEach(carro => {
+                // 1. CORRECCIÓN DEL TÍTULO: Unimos marca y modelo
+                const titulo = `${carro.marca} ${carro.modelo}`; 
+                
+                // 2. CORRECCIÓN DE LA IMAGEN: 
+                // Si hay URL en la base de datos, mostramos la foto. Si no, dejamos el emoji.
+                let imagenHTML;
+                if (carro.imagen_url) {
+                    imagenHTML = `<img src="${carro.imagen_url}" alt="${titulo}" style="width:100%; height:200px; object-fit:cover;">`;
+                } else {
+                    imagenHTML = `<div class="car-image">🚙</div>`;
+                }
+
+                const htmlCarro = `
+                    <div class="car-card">
+                        ${imagenHTML}
+                        <div class="car-info">
+                            <h3>${titulo}</h3> 
+                            <p class="price">$${carro.precio}</p>
+                            <ul>
+                                <li>✓ Año: ${carro.año}</li>
+                                <li>✓ ${carro.descripcion || 'Excelente estado'}</li>
+                            </ul>
+                            <a href="contacto.html" class="btn">Más Información</a>
+                        </div>
+                    </div>
+                `;
+                
+                contenedor.innerHTML += htmlCarro;
+            });
+        }
 
             // 3. Recorremos cada carro y creamos su tarjeta HTML
             carros.forEach(carro => {
