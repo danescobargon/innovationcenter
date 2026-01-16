@@ -277,5 +277,41 @@
     <footer>
         <p>&copy; 2024 AutoPremium. Todos los derechos reservados.</p>
     </footer>
+    <!-- Supabase Backend -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // Configuración de Supabase
+  const SUPABASE_URL = 'https://lnlxglplgxfffnenabdm.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_qt_g8NoGjuMY1SK-NyRt7w_D2OP1ttI';
+  
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  // Función para obtener todos los carros
+  async function obtenerCarros() {
+    const { data, error } = await supabase
+      .from('vehiculos')
+      .select('*');
+    
+    if (error) {
+      console.error('Error al obtener carros:', error);
+      return;
+    }
+    
+    console.log('Carros obtenidos:', data);
+    mostrarCarros(data);
+  }
+
+  // Función para mostrar los carros en la página
+  function mostrarCarros(carros) {
+    // Aquí mostraremos los carros más adelante
+    console.log('Total de carros:', carros.length);
+  }
+
+  // Cargar los carros cuando la página termine de cargar
+  document.addEventListener('DOMContentLoaded', obtenerCarros);
+</script>
+
+</body>
+</html>
 </body>
 </html>
