@@ -37,11 +37,41 @@
             padding: 0 2rem;
         }
 
+        /* --- ESTILOS DEL LOGO PREMIUM (Actualizado) --- */
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ffd700;
+            font-size: 2rem;
+            font-weight: 900; /* Extra negrita */
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+
+            /* Efecto Metálico Dorado */
+            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            
+            /* Recorta el fondo a la forma del texto */
+            -webkit-background-clip: text;
+            background-clip: text;
+            
+            /* Hace el texto transparente para ver el oro */
+            -webkit-text-fill-color: transparent;
+            color: transparent; 
+            
+            /* Sombra para resaltar sobre fondo oscuro */
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
         }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 1.1em;
+            /* El icono también toma el efecto dorado */
+        }
+
+        .logo:hover {
+            /* Brillo al pasar el mouse */
+             filter: drop-shadow(2px 2px 4px rgba(255, 223, 0, 0.4)) brightness(1.1);
+        }
+        /* ----------------------------------------------- */
 
         nav ul {
             display: flex;
@@ -122,9 +152,7 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">
-  🚗 AutoPremium
-</a>
+            <a href="index.html" class="logo"><span class="logo-icon">🚗</span> AutoPremium</a>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="inventario.html">Inventario</a></li>
