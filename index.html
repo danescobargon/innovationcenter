@@ -4,155 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoPremium - Inicio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* --- ESTILOS DEL LOGO PREMIUM (Actualizado) --- */
+        /* --- NUEVOS ESTILOS DE LOGO ELEGANTE Y SEPARADO --- */
         .logo {
-            font-size: 2rem;
-            font-weight: 900; /* Extra negrita */
-            text-decoration: none;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
+            text-decoration: none;
+            /* El contenedor ya no tiene estilos de texto, solo alinea */
+        }
 
-            /* Efecto Metálico Dorado */
+        /* Estilo para el ÍCONO (el auto) */
+        .logo-icon {
+            font-size: 1.8rem; /* Tamaño prominente */
+            color: #ffd700; /* Un dorado sólido y limpio, diferente al texto */
+            margin-right: 15px; /* Más separación entre ícono y texto */
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5)); /* Sombra suave para volumen */
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo para el TEXTO "AutoPremium" */
+        .logo-text {
+            font-family: 'Playfair Display', serif; /* Fuente elegante con serifa */
+            font-size: 2.2rem; 
+            font-weight: 700;
+            letter-spacing: 0.5px; /* Espaciado sofisticado */
+
+            /* Efecto Metálico Dorado (SOLO APLICADO AL TEXTO) */
             background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-            
-            /* Recorta el fondo a la forma del texto */
             -webkit-background-clip: text;
             background-clip: text;
-            
-            /* Hace el texto transparente para ver el oro */
             -webkit-text-fill-color: transparent;
-            color: transparent; 
+            color: transparent;
             
-            /* Sombra para resaltar sobre fondo oscuro */
-            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+            /* Sombra elegante para separarlo del fondo */
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+            transition: all 0.3s ease;
         }
 
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 1.1em;
-            /* El icono también toma el efecto dorado */
+        /* Efecto Hover: sutil y elegante */
+        .logo:hover .logo-icon {
+            color: #ffffff; /* El auto se vuelve blanco brillante */
+            transform: translateX(-3px); /* Pequeño movimiento hacia adelante */
         }
+        
+        .logo:hover .logo-text {
+            /* El texto dorado brilla más */
+            filter: drop-shadow(2px 2px 6px rgba(255, 215, 0, 0.6)) brightness(1.1);
+        }
+        /* -------------------------------------------------- */
 
-        .logo:hover {
-            /* Brillo al pasar el mouse */
-             filter: drop-shadow(2px 2px 4px rgba(255, 223, 0, 0.4)) brightness(1.1);
-        }
-        /* ----------------------------------------------- */
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ffd700;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 70px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            color: #1a1a2e;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.4);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255,215,0,0.6);
-        }
-
-        footer {
-            background: #0f0f1e;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-        }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; transition: color 0.3s; }
+        nav a:hover { color: #ffd700; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070'); background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 70px; }
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; }
+        .btn { display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); color: #1a1a2e; text-decoration: none; border-radius: 50px; font-weight: bold; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(255,215,0,0.4); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,215,0,0.6); }
+        footer { background: #0f0f1e; color: white; text-align: center; padding: 2rem; }
+        @media (max-width: 768px) { .hero-content h1 { font-size: 2rem; } nav ul { gap: 1rem; font-size: 0.9rem; } }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo"><span class="logo-icon">🚗</span> AutoPremium</a>
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-car-side logo-icon"></i>
+                <span class="logo-text">AutoPremium</span>
+            </a>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="inventario.html">Inventario</a></li>
