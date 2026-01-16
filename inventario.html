@@ -284,11 +284,11 @@
   const SUPABASE_URL = 'https://lnlxglplgxfffnenabdm.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_qt_g8NoGjuMY1SK-NyRt7w_D2OP1ttI';
   
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   // Función para obtener todos los carros
   async function obtenerCarros() {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
       .from('vehiculos')
       .select('*');
     
@@ -311,7 +311,5 @@
   document.addEventListener('DOMContentLoaded', obtenerCarros);
 </script>
 
-</body>
-</html>
 </body>
 </html>
